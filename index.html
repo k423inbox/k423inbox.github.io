@@ -129,12 +129,12 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-count">5</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">标签</span>
       </div>
   </nav>
@@ -151,6 +151,90 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://k423inbox.github.io/2026/06/28/rabbitNote1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="K423inBox">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人博客">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | 个人博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2026/06/28/rabbitNote1/" class="post-title-link" itemprop="url">rabbitNote1</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2026-06-28 09:08:02 / 修改时间：09:10:20" itemprop="dateCreated datePublished" datetime="2026-06-28T09:08:02+08:00">2026-06-28</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="vue3项目起步"><a href="#vue3项目起步" class="headerlink" title="vue3项目起步"></a>vue3项目起步</h1><h2 id="1-别名路径设置"><a href="#1-别名路径设置" class="headerlink" title="1.别名路径设置"></a>1.别名路径设置</h2><p>jsconfit.json文件中，以下代码负责提升</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;compilerOptions&quot;</span>: &#123;</span><br><span class="line">  <span class="string">&quot;paths&quot;</span>: &#123;</span><br><span class="line">    <span class="string">&quot;@/*&quot;</span>: [<span class="string">&quot;./src/*&quot;</span>]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>vite.config.js文件中，以下代码负责路径转换  @-&gt;&#x2F;src</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">resolve</span>: &#123;</span><br><span class="line">  <span class="attr">alias</span>: &#123;</span><br><span class="line">    <span class="string">&#x27;@&#x27;</span>: <span class="title function_">fileURLToPath</span>(<span class="keyword">new</span> <span class="title function_">URL</span>(<span class="string">&#x27;./src&#x27;</span>, <span class="keyword">import</span>.<span class="property">meta</span>.<span class="property">url</span>)),</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+
+<p>这个设置可以将项目中的src文件夹映射成@&#x2F;,<br>例如 src&#x2F;App.vue 与 @&#x2F;App.vue是同一个路径下的同一个文件  </p>
+<h2 id="2-覆盖ElementPlus的默认颜色"><a href="#2-覆盖ElementPlus的默认颜色" class="headerlink" title="2.覆盖ElementPlus的默认颜色"></a>2.覆盖ElementPlus的默认颜色</h2><p>在src&#x2F;style文件夹下新建一个scss文件，在文件中通过属性重新赋值的方式更改全局默认颜色</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-pseudo">:root</span> &#123;</span><br><span class="line">    <span class="attr">--el-color-primary</span>:<span class="number">#27ba9b</span>;</span><br><span class="line">    <span class="attr">--el-color-success</span>:<span class="number">#1dc779</span>;</span><br><span class="line">    <span class="attr">--el-color-warning</span>:<span class="number">#ffb302</span>;</span><br><span class="line">    <span class="attr">--el-color-danger</span>:<span class="number">#e26237</span>;</span><br><span class="line">    <span class="attr">--el-color-error</span>:<span class="number">#cf4444</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>然后在main.js文件中引入scss文件完成覆盖</p>
+<h2 id="3-搭建页面框架"><a href="#3-搭建页面框架" class="headerlink" title="3.搭建页面框架"></a>3.搭建页面框架</h2><p>在页面的相应文件夹中新建一个index.vue的入口文件，在页面文件夹中新建conponents文件夹，在conponents文件夹中写页面组件的代码，每个代码组件对于页面的一个区域，将组件代码引入到index文件中实现代码的高内聚，低耦合,代码结构如下图</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;script setup&gt;</span><br><span class="line"><span class="keyword">import</span> <span class="title class_">LayoutNav</span> <span class="keyword">from</span> <span class="string">&#x27;./components/LayoutNav.vue&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="title class_">LayoutHeader</span> <span class="keyword">from</span> <span class="string">&#x27;./components/LayoutHeader.vue&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="title class_">LayoutFooter</span> <span class="keyword">from</span> <span class="string">&#x27;./components/LayoutFooter.vue&#x27;</span>;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">LayoutNav</span>/&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">LayoutHeader</span>/&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">RouterView</span>&gt;</span><span class="tag">&lt;/<span class="name">RouterView</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">LayoutFooter</span>&gt;</span><span class="tag">&lt;/<span class="name">LayoutFooter</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+<h2 id="4-实现页面顶部导航栏始终存在"><a href="#4-实现页面顶部导航栏始终存在" class="headerlink" title="4.实现页面顶部导航栏始终存在"></a>4.实现页面顶部导航栏始终存在</h2><p>有两种实现方案<br>1：通过CSS将导航栏的布局设置成粘滞定位<br>2：通过js等方式获取页面下滑的像素大小，添加一个正常情况下隐藏的导航栏，下滑到一定程度后显示隐藏的导航栏</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
